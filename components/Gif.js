@@ -6,17 +6,15 @@ var styles = {
 
 Gif = React.createClass({
 
-//1.  getUrl method - returns  url received by props from App component */
+
 
 	getUrl: function(){
 		return this.props.sourceUrl || GIPHY_LOADING_URL;
 	},
 	
-//2. render method
+
 	
 	render: function(){
-	
-	/* In depeends on value of loading state returns Gif element containing gif from giphy.com (then loading is false) or loading gif (then loading is true)   */
 	
 		var url = this.props.loading ? GIPHY_LOADING_URL : this.props.url; 
 		

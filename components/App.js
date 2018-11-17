@@ -13,17 +13,15 @@ App = React.createClass({
 		};
 	},
 
-// 2. HandleSearch method sets state loading to true and calls getGif function. The parameter of function is searchingText an callback. Receive gif object as callback and sets new states after receiving gif
 
 	handleSearch: function(searchingText){
 	
-	// a) sets state loading to true - shows loading gif
+	
 	
 		this.setState({
 			loading: true
 		});
 		
-	// b) this part runs getGif method and sets new state of App component then receive gif object from callback
 	
 		this.getGif(searchingText, function(gif){
 	
@@ -55,13 +53,7 @@ App = React.createClass({
 		}
 		xhr.send();
 	},
-	
-/* 4.  Render method  */
-	
-		/* onSearch={this.handleSearch - refers handleSearch function to Search component as  property */
-		/* this.state.loading - refers loading state to Gif component as property*/
-		/* this.state.gif.url -  refers url adress to Gif component as property */
-		/* this.state.gif.sourceUrl - refers sourceUrl adress to Gif component as property */
+
 		
 	render: function(){
 		var styles = {
