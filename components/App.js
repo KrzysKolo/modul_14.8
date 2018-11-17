@@ -2,9 +2,6 @@ var GIPHY_API_URL = 'http://api.giphy.com';
 var GIPHY_PUB_KEY = 'q4k1xiFfyXHFEVGeG4SYB8VJsIA5OtQu';
 
 App = React.createClass({
-
-//1. sets initial state
-
 	getInitialState(){
 		return {
 			loading: false,
@@ -12,32 +9,20 @@ App = React.createClass({
 			gif: {}
 		};
 	},
-
-
-	handleSearch: function(searchingText){
-	
-	
-	
-		this.setState({
+handleSearch: function(searchingText){
+	this.setState({
 			loading: true
 		});
-		
-	
-		this.getGif(searchingText, function(gif){
-	
-			this.setState({
+	this.getGif(searchingText, function(gif){
+	   this.setState({
 				loading: false,
 				gif: gif,
 				searchingText: searchingText
 			});
 		}.bind(this)); 
 	},
-	
-// 3.  getGif method - gets gif from giphy.com and returns gif object as callback
-	
 	getGif: function(searchingText, callback){
-
-		var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
+        var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
 		console.log(url);
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', url);
@@ -53,17 +38,12 @@ App = React.createClass({
 		}
 		xhr.send();
 	},
-
-		
-	render: function(){
+    render: function(){
 		var styles = {
 			margin: '0 auto',
 			textAlign: 'center',
 			width: '90%'
 		}
-		
-		
-		
 		return (
 			<div style={styles}>
 				<h1>Wyszukiwarka Gifów</h1>
